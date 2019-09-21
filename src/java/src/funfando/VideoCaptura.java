@@ -12,7 +12,7 @@ package funfando;
 import java.awt.image.BufferedImage;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.highgui.VideoCapture;
+import org.opencv.videoio.VideoCapture;
 
 public class VideoCaptura {
 
@@ -24,6 +24,9 @@ public class VideoCaptura {
   public VideoCaptura(){
       this.video = new VideoCapture();
       this.video.open(0);
+     // capturaQuadroMat();
+      capturaQuadroBufferedImage();
+      matToBufferedImage(capturaQuadroMat());
   }
 
   public BufferedImage capturaQuadroBufferedImage(){
@@ -71,4 +74,9 @@ public class VideoCaptura {
   static{
       System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
   }
+  public static void main(String[] args) {
+	 new VideoCaptura();
+	
+}
+  
 }
